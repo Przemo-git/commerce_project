@@ -1,0 +1,43 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<div class="container">
+    <h2>Create listing</h2>
+
+</div>
+
+<div class="continer">
+    <form action="{% url 'submit' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormContolInput1">Title</label>
+            <input type="text" class="form-control" name="title" id="exampleFormContolInput1" placeholder="Title of the listing..."
+            required>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormContolTextarea1">Description</label>
+            <textarea class="form-control" name="description" id="exampleFormContolTextarea1" placeholder="Description of the listing..."
+                      rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Category</label>
+            <select class="form-control" name="category" id="exampleFormControlSelect1" required>
+                  <option>Fashion</option>
+                  <option>Cars</option>
+                  <option>Toys</option>
+                  <option>Electronics</option>
+                  <option>Home accessories</option>
+                  <option>Books</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Initial Bid</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Starting bid..." name="price" required>
+          </div>
+        <div class="form-group">
+            <label for="exampleFormContolInput1">Image link (optional)</label>
+            <input class="form-control" type="text" name="link" id="exampleFormContolInput1" placeholder="https://blah-blah.jpg...">
+        </div>
+        <button class="btn btn-outline-info" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
